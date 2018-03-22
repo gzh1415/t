@@ -1,22 +1,19 @@
 <html>
     <head>
         <title>加载中...</title>
-        <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
-        <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
-        <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
-        <meta HTTP-EQUIV="expires" CONTENT="0">
     </head>
     <body></body>
     <script>
-        let url = window.location.href;
-        let idx = url.indexOf('r=');
-        if (idx>-1) {
-            idx = url.indexOf('?');
-            window.location = 'http://www.24sa.cn/'+url.substr(idx);
+        document.onload = function() {
+            var url = window.location.href;
+            var idx = url.indexOf('r=');
+            if (idx>-1) {
+                idx = url.indexOf('?');
+                window.location = 'http://www.24sa.cn/'+url.substr(idx);
+            }
+            else {
+                window.location.href += ((url.indexOf('?')>-1)?'&r=':'?r=') + Math.random();
+            }
         }
-        else {
-            window.location.href += ((url.indexOf('?')>-1)?'&r=':'?r=') + Math.random();
-        }
-        
     </script>
 </html>
