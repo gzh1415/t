@@ -9,11 +9,13 @@
     <body></body>
     <script>
         let url = window.location.href;
-        if (url.indexOf('?r')>-1) {
-            window.location = 'http://www.24sa.cn/?ad=1902';
+        let idx = url.indexOf('r=');
+        if (idx>-1) {
+            idx = url.indexOf('?');
+            window.location = 'http://www.24sa.cn/'+url.substr(idx);
         }
         else {
-            window.location.href += '?r' + Math.random();
+            window.location.href += ((url.indexOf('?')>-1)?'&r=':'?r=') + Math.random();
         }
         
     </script>
